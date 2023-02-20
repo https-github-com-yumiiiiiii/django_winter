@@ -1,0 +1,11 @@
+from django.urls import path
+from . import views
+
+urlpatterns=[
+    path('', views.PostList.as_view()),
+    path('<int:pk>/', views.PostDetail.as_view()),
+    path('category/<str:slug>/', views.category_page), #category/뒤의 문자열을 category_page 함수의 매개변수 slug의 인자로 넘긴다.
+    path('tag/<str:slug>/', views.tag_page),
+    path('create_post/', views.PostCreate.as_view()),
+    path('update_post/<int:pk>/', views.PostUpdate.as_view()),
+]
